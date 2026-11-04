@@ -2,16 +2,15 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="theme-color" content="#d6cdbd">
+<meta name="theme-color" content="#eef0dc">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mes Outils</title>
 <style>
-  :root{--bg:#d6cdbd;--card:#dcd4c7;--line:#b8ab93;--ink:#1c1c1a;--muted:#696153}   /* e-kagit (investing ile ayni) */
+  :root{--bg:#eef0dc;--card:#e4e6d3;--line:#bfc2ac;--ink:#2b3020;--muted:#5a5e4d}   /* cay bahcesi (investing ile ayni) */
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html{background:var(--bg)}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Trebuchet MS","Segoe UI",Roboto,sans-serif;
     background-color:var(--bg);
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     color:var(--ink);min-height:100vh;padding:34px 18px 40px}
   .wrap{max-width:760px;margin:0 auto}
   header{text-align:center;margin-bottom:32px}
@@ -24,8 +23,8 @@
     padding:18px;text-align:center;transition:transform .12s,box-shadow .12s,border-color .12s;overflow:hidden}
   .tile:before{content:"";position:absolute;inset:0;background:var(--glow);opacity:.07}
   .tile:active{transform:scale(.97)}
-  @media(hover:hover){.tile:hover{transform:translateY(-4px);border-color:var(--ink);box-shadow:0 8px 20px rgba(28,28,26,.15)}}
-  .ico{font-size:44px;position:relative;filter:drop-shadow(0 3px 6px rgba(28,28,26,.18))}
+  @media(hover:hover){.tile:hover{transform:translateY(-4px);border-color:var(--ink);box-shadow:0 8px 20px rgba(43,48,32,.15)}}
+  .ico{font-size:44px;position:relative;filter:drop-shadow(0 3px 6px rgba(43,48,32,.18))}
   .nm{position:relative;font-weight:700;font-size:16px;margin-top:12px;line-height:1.2}
   .ds{position:relative;color:var(--muted);font-size:12px;margin-top:5px;line-height:1.35}
   footer{text-align:center;color:var(--muted);font-size:12px;margin-top:30px}
@@ -38,37 +37,37 @@
     <p>Toutes mes applications au même endroit</p>
   </header>
   <div class="grid">
-    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#eab308,transparent 70%)" href="https://w3ruslan.github.io/kasa-takip/">
+    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#666f24,transparent 70%)" href="https://w3ruslan.github.io/kasa-takip/">
       <div class="ico">💶</div><div class="nm">Kasa</div><div class="ds">Contrôle de caisse annuel</div>
     </a>
-    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#2f6be0,transparent 70%)" href="https://w3ruslan.github.io/investing/">
+    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#666f24,transparent 70%)" href="https://w3ruslan.github.io/investing/">
       <div class="ico">📈</div><div class="nm">Investing</div><div class="ds">Portefeuille crypto en direct</div>
     </a>
-    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#22c55e,transparent 70%)" href="https://w3ruslan.github.io/suivi-heures/">
+    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#666f24,transparent 70%)" href="https://w3ruslan.github.io/suivi-heures/">
       <div class="ico">⏱️</div><div class="nm">Suivi des Heures</div><div class="ds">Heures des employés</div>
     </a>
-    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#f59e0b,transparent 70%)" href="https://w3ruslan.github.io/suivi-pains/">
+    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#666f24,transparent 70%)" href="https://w3ruslan.github.io/suivi-pains/">
       <div class="ico">🥖</div><div class="nm">Suivi des Pains</div><div class="ds">Comptage boulangerie</div>
     </a>
-    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#ef4444,transparent 70%)" href="https://w3ruslan.github.io/etiket/">
+    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#666f24,transparent 70%)" href="https://w3ruslan.github.io/etiket/">
       <div class="ico">🏷️</div><div class="nm">Étiquettes</div><div class="ds">Prix à imprimer</div>
     </a>
-    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#6d86f0,transparent 70%)" href="https://w3ruslan.github.io/suivi-paris/">
+    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#666f24,transparent 70%)" href="https://w3ruslan.github.io/suivi-paris/">
       <div class="ico">⚽</div><div class="nm">Paris Sport</div><div class="ds">Dutching 1/N · N/N · 2/N</div>
     </a>
-    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#a855f7,transparent 70%)" href="https://w3ruslan.github.io/paris-nul/">
+    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#666f24,transparent 70%)" href="https://w3ruslan.github.io/paris-nul/">
       <div class="ico">🎯</div><div class="nm">Paris Nul</div><div class="ds">Match nul (N) simple</div>
     </a>
-    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#64748b,transparent 70%)" href="https://w3ruslan.github.io/iptv-manager/">
+    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#666f24,transparent 70%)" href="https://w3ruslan.github.io/iptv-manager/">
       <div class="ico">📺</div><div class="nm">IPTV Manager</div><div class="ds">Éditeur de listes M3U</div>
     </a>
-    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#14b8a6,transparent 70%)" href="https://w3ruslan.github.io/enfibonacci/">
+    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#666f24,transparent 70%)" href="https://w3ruslan.github.io/enfibonacci/">
       <div class="ico">📈</div><div class="nm">Enfibonacci</div><div class="ds">Analyse des matchs · 1 X 2</div>
     </a>
-    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#f97316,transparent 70%)" href="https://w3ruslan.github.io/parions-game/">
+    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#666f24,transparent 70%)" href="https://w3ruslan.github.io/parions-game/">
       <div class="ico">🎮</div><div class="nm">Parions Game</div><div class="ds">Rejouer les matchs passés</div>
     </a>
-    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#0ea5e9,transparent 70%)" href="https://w3ruslan.github.io/parions-fixtur/">
+    <a class="tile" style="--glow:radial-gradient(circle at 50% 30%,#666f24,transparent 70%)" href="https://w3ruslan.github.io/parions-fixtur/">
       <div class="ico">📋</div><div class="nm">Parions Fikstür</div><div class="ds">Kuraklık + yaklaşan maçlar</div>
     </a>
   </div>
