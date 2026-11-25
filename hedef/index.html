@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#eef0dc">
+<title>Hedef Kazanç</title>
+<style>
+  :root{--bg:#eef0dc;--kart:#e4e6d3;--hover:#dee1cd;--cizgi:#cdcfbc;--cizgi2:#bfc2ac;--ink:#2b3020;--gri:#5a5e4d;--acik:#9c9f8d;
+        --vurgu:#666f24;--yes:#3d6620;--kir:#9c4628;--sar:#86600f;--yesA:#dfe5c9;--kirA:#ecdfcb;--sarA:#e9e4c9}   /* cay bahcesi (investing ile ayni) */
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{background:var(--bg)}
+  body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Trebuchet MS","Segoe UI",Roboto,sans-serif;padding:22px 16px 40px;min-height:100vh}
+  .wrap{max-width:720px;margin:0 auto}
+  a{color:var(--vurgu)}
+  .ust{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+  .ust a{text-decoration:none;font-size:13px;color:var(--gri)}
+  h1{font-size:24px;margin:0;letter-spacing:-.3px}
+  .alt{color:var(--gri);margin:4px 0 18px}
+  .kart{background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:16px;margin-bottom:14px}
+  label{display:block;font-size:12px;font-weight:700;color:var(--gri);margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px}
+  input,select{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--cizgi2);border-radius:10px;padding:10px 11px}
+  input:focus,select:focus{outline:none;border-color:var(--vurgu);box-shadow:0 0 0 2px rgba(102,111,36,.18)}
+  .sira{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-items:end}
+  .sira2{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px;align-items:end}
+  @media(max-width:480px){.sira2{grid-template-columns:1fr 1fr}.sira2 .yuv{grid-column:1/3}}
+  .yapistir{margin-bottom:12px}
+  .ozet{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .ozet div{background:var(--bg);border:1px solid var(--cizgi);border-radius:12px;padding:10px 12px}
+  .ozet b{display:block;font-size:19px}
+  .ozet small{color:var(--gri);font-size:12px}
+  .not{font-size:13px;color:var(--gri);margin:10px 0 0}
+  .uyari{background:var(--kirA);border:1px solid #d9bfa3;color:#7e3518;border-radius:12px;padding:11px 13px;font-size:13.5px;margin-top:12px}
+  h2{font-size:13px;text-transform:uppercase;letter-spacing:.4px;color:var(--gri);margin:22px 0 10px}
+  .liste{display:grid;gap:10px}
+  .sec{background:var(--kart);border:1px solid var(--cizgi);border-left:4px solid var(--yes);border-radius:14px;padding:13px 14px}
+  .sec.yetmez{border-left-color:var(--sar)}
+  .sec.imkansiz{border-left-color:var(--acik);opacity:.85}
+  .sbas{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px}
+  .sbas b{font-size:16px}
+  .ihtimal{font-size:13px;font-weight:700;color:var(--gri);white-space:nowrap}
+  .yatir{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:9px}
+  .chip{background:var(--bg);border:1px solid var(--cizgi2);border-radius:999px;padding:4px 11px;font-weight:700;font-size:14px}
+  .chip span{color:var(--gri);font-weight:600}
+  .satir{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;padding:3px 0;border-top:1px dashed var(--cizgi)}
+  .satir:first-of-type{border-top:0}
+  .satir span:first-child{color:var(--gri)}
+  .arti{color:var(--yes);font-weight:700}.eksi{color:var(--kir);font-weight:700}.sari{color:var(--sar);font-weight:700}
+  .bos{color:var(--gri);font-size:13.5px;padding:4px 2px}
+  footer{color:var(--gri);font-size:12px;margin-top:26px;line-height:1.5}
+  .r{font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="ust"><a href="https://w3ruslan.github.io/">← Mes Outils</a></div>
+  <h1>🧮 Hedef Kazanç</h1>
+  <p class="alt">Maçın oranlarını ve paranı yaz: hedefine ulaşmak için hangi sonuca ne kadar yatırman gerektiğini hesaplar.</p>
+
+  <div class="kart">
+    <div class="yapistir">
+      <label for="yap">Oranları yapıştır (isteğe bağlı)</label>
+      <input id="yap" inputmode="decimal" placeholder="örn. 3.10-3.30-1.82" autocomplete="off">
+    </div>
+    <div class="sira">
+      <div><label for="o1">1 · Ev sahibi</label><input id="o1" inputmode="decimal" value="3.10"></div>
+      <div><label for="ox">X · Beraberlik</label><input id="ox" inputmode="decimal" value="3.30"></div>
+      <div><label for="o2">2 · Deplasman</label><input id="o2" inputmode="decimal" value="1.82"></div>
+    </div>
+    <div class="sira2">
+      <div><label for="kasa">Param (€)</label><input id="kasa" inputmode="decimal" value="10"></div>
+      <div><label for="hedef">Kazanmak istediğim (€)</label><input id="hedef" inputmode="decimal" value="10"></div>
+      <div class="yuv"><label for="adim">Yuvarlama</label>
+        <select id="adim"><option value="0.01">0,01 €</option><option value="0.1" selected>0,10 €</option><option value="1">1 €</option></select></div>
+    </div>
+  </div>
+
+  <div class="kart" id="ozet"></div>
+
+  <h2>Hedefe ulaşan seçenekler</h2>
+  <div class="liste" id="ulasan"></div>
+
+  <h2>Paran yetmeyenler</h2>
+  <div class="liste" id="yetmeyen"></div>
+
+  <h2 id="imkBas">Bu oranlarla imkânsız</h2>
+  <div class="liste" id="imkansiz"></div>
+
+  <footer>
+    <b>Kazanma ihtimali</b> oranlardan tahmin edilir: bahis şirketinin payı çıkarılıp oranlar olasılığa çevrilir. Gerçek ihtimal farklı olabilir.<br>
+    <b>Ortalama sonuç</b>, aynı bahsi çok kez oynasan bahis başına ortalama ne kazanıp kaybedeceğini gösterir. Şirket payı yüzünden neredeyse her zaman eksidir.<br>
+    Bahis risklidir; sadece kaybetmeyi göze alabileceğin parayla oyna.
+  </footer>
+</div>
+
+<script>
+const AD = { "1":"1", "X":"X", "2":"2" };
+const UZUN = { "1":"Ev sahibi kazanır", "X":"Beraberlik", "2":"Deplasman kazanır" };
+const KOMBO = [["1"],["X"],["2"],["1","X"],["X","2"],["1","2"],["1","X","2"]];
+const KOMBO_AD = { "1":"1 · Ev sahibi", "X":"X · Beraberlik", "2":"2 · Deplasman", "1X":"1 veya X", "X2":"X veya 2", "12":"1 veya 2", "1X2":"Üçü birden" };
+const $ = id => document.getElementById(id);
+const sayi = v => { const x = parseFloat(String(v).replace(",", ".").replace(/[^\d.]/g, "")); return isFinite(x) ? x : NaN; };
+const euro = v => (v < 0 ? "−" : "") + Math.abs(v).toLocaleString("tr-TR", { minimumFractionDigits:2, maximumFractionDigits:2 }) + " €";
+const arti = v => (v > 0 ? "+" : "") + euro(v);
+const yuzde = v => "%" + (v * 100).toLocaleString("tr-TR", { maximumFractionDigits: v < .1 ? 1 : 0 });
+const yukari = (v, a) => Math.ceil(v / a - 1e-9) * a;
+const asagi = (v, a) => Math.floor(v / a + 1e-9) * a;
+
+function oku(){
+  const o = { "1":sayi($("o1").value), "X":sayi($("ox").value), "2":sayi($("o2").value) };
+  return { o, kasa:sayi($("kasa").value), hedef:sayi($("hedef").value), adim:+$("adim").value };
+}
+// yatirimlar verildiginde: hangi sonuc gelirse ne olur
+function sonuc(k, yat, o, p){
+  const top = k.reduce((a, s) => a + yat[s], 0);
+  const net = k.map(s => yat[s] * o[s] - top);
+  const ort = k.reduce((a, s) => a + p[s] * yat[s] * o[s], 0) - top;
+  return { top, netMin: Math.min(...net), netMax: Math.max(...net), ort };
+}
+function hesapla(){
+  const { o, kasa, hedef, adim } = oku();
+  try { localStorage.setItem("hedefKazanc", JSON.stringify({ o1:$("o1").value, ox:$("ox").value, o2:$("o2").value, kasa:$("kasa").value, hedef:$("hedef").value, adim:$("adim").value })); } catch(e){}
+  const hata = ["1","X","2"].some(s => !(o[s] > 1)) ? "Oranlar 1'den büyük olmalı." : !(kasa > 0) ? "Paranı yaz." : !(hedef > 0) ? "Kazanmak istediğin miktarı yaz." : "";
+  if (hata) { $("ozet").innerHTML = `<div class="bos">${hata}</div>`; ["ulasan","yetmeyen","imkansiz"].forEach(i => $(i).innerHTML = ""); return; }
+
+  const ters = { "1":1/o["1"], "X":1/o["X"], "2":1/o["2"] }, toplam = ters["1"] + ters["X"] + ters["2"];
+  const p = { "1":ters["1"]/toplam, "X":ters["X"]/toplam, "2":ters["2"]/toplam };
+  const pay = 1 - 1/toplam;
+
+  // ucune birden kasanin tamami: her durumda ayni geri donus
+  const g = {}; ["1","X","2"].forEach(s => g[s] = asagi(kasa * ters[s] / toplam, adim));
+  const gs = sonuc(["1","X","2"], g, o, p);
+  $("ozet").innerHTML = `
+    <div class="ozet">
+      <div><small>Bahis şirketinin payı</small><b class="r">${yuzde(pay)}</b><small>oranların içine gizlenmiş komisyon</small></div>
+      <div><small>Oranlardan tahmini ihtimal</small><b class="r" style="font-size:15px;margin-top:3px">1: ${yuzde(p["1"])} · X: ${yuzde(p["X"])} · 2: ${yuzde(p["2"])}</b></div>
+    </div>
+    ${pay > 0
+      ? `<div class="uyari"><b>Garanti kazanç yok.</b> Üç sonucun hepsine oynarsan (1: ${euro(g["1"])}, X: ${euro(g["X"])}, 2: ${euro(g["2"])}) maç nasıl biterse bitsin <b>${euro(gs.netMax)}</b> ile <b>${euro(gs.netMin)}</b> arası kaybedersin. Kazanmak için mutlaka bir sonucu açıkta bırakman, yani kaybetme riskini alman gerekiyor.</div>`
+      : `<div class="uyari" style="background:var(--yesA);border-color:var(--cizgi2);color:var(--yes)"><b>Bu oranlarda şirket payı yok:</b> üçüne birden oynayınca her durumda en az ${arti(gs.netMin)} kalır. Oranları tekrar kontrol et, böyle oranlar çok nadirdir.</div>`}`;
+
+  const ulasan = [], yetmeyen = [], imkansiz = [];
+  for (const k of KOMBO) {
+    const ad = k.join(""), s = k.reduce((a, x) => a + ters[x], 0), pk = k.reduce((a, x) => a + p[x], 0);
+    if (k.length === 3) continue;                      // yukaridaki kutuda
+    if (s >= 1) { imkansiz.push({ ad, k, pk, s }); continue; }
+    // hedef: hangi sonuc gelirse gelsin en az hedef kadar net
+    const S = hedef * s / (1 - s), yat = {};
+    k.forEach(x => yat[x] = yukari((hedef + S) / o[x], adim));
+    // yuvarlama sonrasi hedefin altinda kalan olursa bir adim artir
+    for (let i = 0; i < 200 && sonuc(k, yat, o, p).netMin < hedef - 1e-9; i++) {
+      const r = sonuc(k, yat, o, p), en = k.reduce((m, x) => yat[x] * o[x] < yat[m] * o[m] ? x : m, k[0]);
+      yat[en] += adim; if (r.top > 1e7) break;
+    }
+    const r = sonuc(k, yat, o, p);
+    if (r.top <= kasa + 1e-9) { ulasan.push({ ad, k, pk, yat, r }); continue; }
+    // kasa ile en fazla ne kazanilir
+    const ky = {}; k.forEach(x => ky[x] = asagi(kasa * ters[x] / s, adim));
+    yetmeyen.push({ ad, k, pk, yat, r, ky, kr: sonuc(k, ky, o, p) });
+  }
+  const kartYaz = (x, tur) => {
+    const chips = y => x.k.map(s => `<span class="chip r"><span>${AD[s]}:</span> ${euro(y[s])}</span>`).join("");
+    const kaybet = `<div class="satir"><span>Kaybederse (${x.k.length === 1 ? "diğer iki sonuç" : "kalan sonuç"})</span><span class="eksi r">${euro(-(tur === "yetmez" ? x.kr.top : x.r.top))}</span></div>`;
+    if (tur === "ulas") return `<div class="sec">
+      <div class="sbas"><b>${KOMBO_AD[x.ad]}</b><span class="ihtimal">kazanma ihtimali ~${yuzde(x.pk)}</span></div>
+      <div class="yatir">${chips(x.yat)}</div>
+      <div class="satir"><span>Toplam yatırım</span><span class="r">${euro(x.r.top)}</span></div>
+      <div class="satir"><span>Kazanırsa net</span><span class="arti r">${x.r.netMin === x.r.netMax ? arti(x.r.netMin) : arti(x.r.netMin) + " – " + arti(x.r.netMax)}</span></div>
+      ${kaybet}
+      <div class="satir"><span>Ortalama sonuç (uzun vadede)</span><span class="r ${x.r.ort < 0 ? "eksi" : "arti"}">${arti(x.r.ort)}</span></div></div>`;
+    return `<div class="sec yetmez">
+      <div class="sbas"><b>${KOMBO_AD[x.ad]}</b><span class="ihtimal">kazanma ihtimali ~${yuzde(x.pk)}</span></div>
+      <div class="satir"><span>Hedef için gereken</span><span class="sari r">${euro(x.r.top)}</span></div>
+      <div class="satir"><span>${euro(kasa)} ile yatırım</span><span class="r">${x.k.map(s => AD[s] + ": " + euro(x.ky[s])).join(" · ")}</span></div>
+      <div class="satir"><span>${euro(kasa)} ile kazanırsa net</span><span class="arti r">${x.kr.netMin === x.kr.netMax ? arti(x.kr.netMin) : arti(x.kr.netMin) + " – " + arti(x.kr.netMax)}</span></div>
+      ${kaybet}
+      <div class="satir"><span>Ortalama sonuç (uzun vadede)</span><span class="r ${x.kr.ort < 0 ? "eksi" : "arti"}">${arti(x.kr.ort)}</span></div></div>`;
+  };
+  const sirala = a => a.sort((a, b) => b.pk - a.pk);
+  $("ulasan").innerHTML = sirala(ulasan).map(x => kartYaz(x, "ulas")).join("") || `<div class="bos">Paranla bu hedefe ulaşan seçenek yok. Hedefi küçült ya da aşağıdakilere bak.</div>`;
+  $("yetmeyen").innerHTML = sirala(yetmeyen).map(x => kartYaz(x, "yetmez")).join("") || `<div class="bos">Yok.</div>`;
+  $("imkansiz").innerHTML = sirala(imkansiz).map(x => `<div class="sec imkansiz"><div class="sbas"><b>${KOMBO_AD[x.ad]}</b><span class="ihtimal">kazanma ihtimali ~${yuzde(x.pk)}</span></div>
+      <div class="bos" style="padding:0">Bu iki sonucun oranları birlikte kâr bırakmıyor: ne kadar yatırırsan yatır, biri gelince zarar edersin.</div></div>`).join("");
+  $("imkBas").style.display = imkansiz.length ? "" : "none";
+}
+// "3.10-3.30-1.82" gibi yapistirilan metinden uc oran
+$("yap").addEventListener("input", e => {
+  const m = (e.target.value.match(/\d+(?:[.,]\d+)?/g) || []).map(v => v.replace(",", ".")).filter(v => +v > 1);
+  if (m.length >= 3) { $("o1").value = m[0]; $("ox").value = m[1]; $("o2").value = m[2]; hesapla(); }
+});
+["o1","ox","o2","kasa","hedef"].forEach(id => $(id).addEventListener("input", hesapla));
+$("adim").addEventListener("change", hesapla);
+try { const k = JSON.parse(localStorage.getItem("hedefKazanc") || "null"); if (k) ["o1","ox","o2","kasa","hedef","adim"].forEach(i => { if (k[i] != null) $(i).value = k[i]; }); } catch(e){}
+hesapla();
+</script>
+</body>
+</html>
